@@ -9,23 +9,21 @@ const defaultProps = {
 }
 
 const MyButton = (props) => {
-  const [countA, setCountA] = useState(0);
-  const [countB, setCountB] = useReducer((total, incrementBy) => {
+  const [count, setCount] = useReducer((total, incrementBy) => {
     return total + incrementBy;
   }, 0);
 
   return (
-    <div
+    <button
       style={{
         color: props.color,
         textDecoration: props.underline ? 'underline' : undefined
       }}
       onClick={() => {
-        setCountA(c => c + props.increment);
-        setCountB(1);
+        setCount(1);
       }}>
-      useReducer={countB} useState={countA}
-    </div>
+      Count={count}
+    </button>
   );
 }
 
